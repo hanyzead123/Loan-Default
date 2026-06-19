@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction System - Predict</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- Header with navigation -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">LPS</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="predict.html">Predict</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <!-- Error display (hidden by default) -->
+        <div id="error-display" class="alert alert-danger d-none mb-4"></div>
+
+        <div class="card border-0 shadow-sm mb-4 bg-white">
+            <div class="card-body text-center p-5">
+                <h1 class="display-5 fw-bold text-primary mb-3">Loan Prediction</h1>
+                <p class="lead text-muted">Enter your details below</p>
+            </div>
+        </div>
+
+        <!-- Form card with modern styling -->
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white p-4 border-0">
+                <h4 class="mb-0"><i class="fas fa-file-alt me-2 text-primary"></i>Loan Application Details</h4>
+            </div>
+            <div class="card-body p-4">
+                <form id="prediction-form" method="POST">
+                    <div class="row g-4">
+                        <!-- Personal Information Section -->
+                        <div class="col-12">
+                            <h5 class="text-primary mb-3"><i class="fas fa-user me-2"></i>Personal Information</h5>
+                            <hr>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Age</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                                <input type="number" id="Age" name="Age" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Education</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                <select id="Education" name="Education" class="form-select" required>
+                                    <option value="" selected disabled>Select education</option>
+                                    <option value="High School">High School</option>
+                                    <option value="Bachelor's">Bachelor's</option>
+                                    <option value="Master's">Master's</option>
+                                    <option value="PhD">PhD</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Marital Status</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-heart"></i></span>
+                                <select id="MaritalStatus" name="MaritalStatus" class="form-select" required>
+                                    <option value="" selected disabled>Select status</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Has Dependents</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                <select id="HasDependents" name="HasDependents" class="form-select" required>
+                                    <option value="" selected disabled>Select option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Financial Information Section -->
+                        <div class="col-12 mt-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-dollar-sign me-2"></i>Financial Information</h5>
+                            <hr>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Income</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                                <input type="number" id="Income" name="Income" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Credit Score</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-chart-line"></i></span>
+                                <input type="number" id="CreditScore" name="CreditScore" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">DTI Ratio</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-percentage"></i></span>
+                                <input type="number" step="0.01" id="DTIRatio" name="DTIRatio" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Number of Credit Lines</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                                <input type="number" id="NumCreditLines" name="NumCreditLines" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Has Mortgage</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                                <select id="HasMortgage" name="HasMortgage" class="form-select" required>
+                                    <option value="" selected disabled>Select option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Employment Information Section -->
+                        <div class="col-12 mt-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-briefcase me-2"></i>Employment Information</h5>
+                            <hr>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Employment Type</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                <select id="EmploymentType" name="EmploymentType" class="form-select" required>
+                                    <option value="" selected disabled>Select type</option>
+                                    <option value="Full-time">Full-time</option>
+                                    <option value="Part-time">Part-time</option>
+                                    <option value="Self-employed">Self-employed</option>
+                                    <option value="Unemployed">Unemployed</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Months Employed</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                <input type="number" id="MonthsEmployed" name="MonthsEmployed" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- Loan Information Section -->
+                        <div class="col-12 mt-4">
+                            <h5 class="text-primary mb-3"><i class="fas fa-hand-holding-usd me-2"></i>Loan Information</h5>
+                            <hr>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Loan Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-coins"></i></span>
+                                <input type="number" id="LoanAmount" name="LoanAmount" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Loan Term (months)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                <input type="number" id="LoanTerm" name="LoanTerm" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Interest Rate (%)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-percentage"></i></span>
+                                <input type="number" step="0.01" id="InterestRate" name="InterestRate" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Loan Purpose</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                <select id="LoanPurpose" name="LoanPurpose" class="form-select" required>
+                                    <option value="" selected disabled>Select purpose</option>
+                                    <option value="Auto">Auto</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Home">Home</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <label class="form-label">Has Co-Signer</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                                <select id="HasCoSigner" name="HasCoSigner" class="form-select" required>
+                                    <option value="" selected disabled>Select option</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-12 mt-4 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5 py-3 shadow-sm">
+                                <i class="fas fa-calculator me-2"></i>Calculate your chances
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add a container where results will be inserted -->
+        <div id="results-container" class="mt-4">
+            <!-- JavaScript will insert results here -->
+        </div>
+    </main>
+
+    <!-- Modern footer with gradient -->
+    <footer class="bg-dark bg-gradient text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-chart-line me-2"></i>Loan Prediction System</h5>
+                    <p class="small">Providing accurate loan approval predictions using advanced machine learning algorithms.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small mb-0">© 2025 Loan Prediction System. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

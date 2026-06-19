@@ -1,0 +1,791 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #6b4226; /* Brown background (was beige) */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles - changing to beige */
+.header {
+    background-color: #f0e6d2; /* Beige for header (was brown) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #6b4226; /* Brown (was beige) */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li {
+    display: block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b4226; /* Brown for nav links (was beige) */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #8b5a2b; /* Lighter brown (was lighter beige) */
+}
+
+/* Hero section */
+.hero {
+    padding: 3rem 0;
+    text-align: center;
+    background-color: #8b5a2b; /* Brown for hero section (was beige) */
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    color: #f0e6d2; /* Beige (was dark blue/gray) */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #e8e0d0; /* Lighter beige (was gray) */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Features section - changing to beige */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature {
+    background-color: #f0e6d2; /* Beige instead of brown */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    color: #6b4226; /* Brown (was beige) */
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.feature p {
+    color: #8b5a2b; /* Lighter brown (was lighter beige) */
+}
+
+/* App container */
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Form styles */
+.input-section {
+    background-color: #8b5a2b; /* Brown instead of beige */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-section h3 {
+    color: #f0e6d2; /* Beige (was dark blue/gray) */
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.loan-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+label {
+    font-weight: 500;
+    color: #e8e0d0; /* Lighter beige (was gray) */
+}
+
+input,
+select {
+    padding: 0.75rem;
+    border: 1px solid #e8e0d0; /* Lighter beige (was gray) */
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #6b4226; /* Darker brown */
+    color: #f0e6d2; /* Beige text */
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #f0e6d2; /* Beige (was brown) */
+    box-shadow: 0 0 0 3px rgba(240, 230, 210, 0.3); /* Beige shadow (was brown) */
+}
+
+.validation-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    height: 20px;
+}
+
+/* Button styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #f0e6d2; /* Beige (was brown) */
+    color: #6b4226; /* Brown text (was white) */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e8e0d0; /* Lighter beige (was darker brown) */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Start Prediction button specific styling */
+#startPredictionBtn,
+.hero-content .btn-primary {
+    background-color: #f0e6d2; /* Beige (was brown) */
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6b4226; /* Brown text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#startPredictionBtn:hover,
+.hero-content .btn-primary:hover {
+    background-color: #e8e0d0; /* Lighter beige (was darker brown) */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Next buttons specific styling */
+.next-step,
+#toFinancial,
+#toLoanDetails {
+    background-color: #f0e6d2; /* Beige (was brown) */
+    color: #6b4226; /* Brown text */
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.next-step:hover,
+#toFinancial:hover,
+#toLoanDetails:hover {
+    background-color: #e8e0d0; /* Lighter beige (was darker brown) */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Calculate Prediction button */
+#predictBtn {
+    background-color: #f0e6d2; /* Beige (was brown) */
+    color: #6b4226; /* Brown text */
+    border: none;
+}
+
+#predictBtn:hover {
+    background-color: #e8e0d0; /* Lighter beige (was darker brown) */
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.hero-content .btn-primary {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-content .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Results section */
+.results-section {
+    background-color: #8b5a2b; /* Brown (was beige) */
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-section h3 {
+    color: #f0e6d2; /* Beige (was dark blue/gray) */
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.results-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.approval-indicator {
+    text-align: center;
+}
+
+.approval-meter {
+    height: 24px;
+    background-color: #5a371f; /* Darker brown (was light beige) */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.meter-bar {
+    height: 100%;
+    background-color: #f0e6d2; /* Beige (was brown) */
+    transition: width 0.5s ease;
+    width: 0;
+}
+
+.approval-percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f0e6d2; /* Beige (was dark blue/gray) */
+}
+
+.prediction-result {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #475569;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: #f8fafc;
+}
+
+.loan-details {
+    display: grid;
+    gap: 2rem;
+}
+
+.detail-group h4 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.factors-list {
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.factors-list li {
+    padding: 0.5rem;
+    background-color: #f8fafc;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #5a371f; /* Darker brown (unchanged) */
+    color: #f0e6d2; /* Beige (was white) */
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer p {
+    text-align: center;
+    color: #e8e0d0; /* Lighter beige (was light gray) */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Responsive design for features */
+@media (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Predict page specific styles */
+.predict-page {
+    background-color: #f8fafc;
+}
+
+.predict-hero {
+    background: linear-gradient(135deg, #6b4226 0%, #8b5a2b 100%); /* Brown gradient */
+    color: white;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+}
+
+.predict-hero h2 {
+    color: white;
+    font-weight: 600;
+}
+
+.predict-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Form styling */
+.app-container {
+    margin: 2rem 0 4rem;
+}
+
+.form-header, .result-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.form-icon, .result-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #6b4226; /* Darker brown */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.form-icon i, .result-icon i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.input-section, .results-section {
+    background-color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Update text colors in predict page - darker beige for better readability */
+.card-body .text-primary,
+.card-header h4,
+.col-12 h5.text-primary,
+.card-header h4 i,
+.col-12 h5.text-primary i,
+.alert-heading i {
+    color: #6b4226 !important; /* Brown color for headings and icons */
+}
+
+.card-body .lead.text-muted,
+.form-label,
+.input-group-text,
+.alert p {
+    color: #e0d2b8 !important; /* Darker beige color for regular text */
+}
+
+/* Make sure form inputs have proper contrast */
+.form-control, .form-select {
+    background-color: #fff;
+    color: #333 !important; /* Dark text for inputs */
+}
+
+/* Update alert text color */
+.alert-success p, .alert-danger p,
+.alert-success .mb-0, .alert-danger .mb-0 {
+    color: #e0d2b8 !important; /* Darker beige for alert text */
+}
+
+/* Update alert colors */
+.alert-success, .alert-danger {
+    background-color: #8b5a2b;
+    border-color: #6b4226;
+    color: #f0e6d2;
+}
+
+/* Card headers and titles */
+.display-5.fw-bold.text-primary {
+    color: #6b4226 !important; /* Brown for main title */
+}
+
+/* About page styles */
+.about-section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #f0e6d2; /* Beige */
+    font-weight: 700;
+}
+
+.about-content {
+    background-color: #8b5a2b; /* Brown */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+}
+
+.about-content .lead {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #f0e6d2; /* Beige */
+}
+
+.about-card {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #6b4226; /* Darker brown */
+    border-radius: 8px;
+    border-left: 4px solid #f0e6d2; /* Beige border */
+}
+
+.about-card h3 {
+    color: #f0e6d2; /* Beige */
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.about-card h3 i {
+    margin-right: 0.5rem;
+    color: #e8e0d0; /* Lighter beige */
+}
+
+.about-card p, .about-card ul {
+    color: #e8e0d0; /* Lighter beige */
+}
+
+.about-card ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.about-card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.member-avatar i {
+    font-size: 2.5rem;
+    color: #9ca3af;
+}
+
+.team-member h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: #1f2937;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/* Ensure all remaining blue elements are changed */
+a {
+    color: #f0e6d2; /* Beige (was brown) */
+}
+
+a:hover {
+    color: #e8e0d0; /* Lighter beige (was brown) */
+}
+
+.btn-success {
+    background-color: #6b4226; /* Darker brown instead of green */
+    border-color: #5a371f;
+}
+
+.btn-success:hover {
+    background-color: #5a371f; /* Even darker brown on hover */
+    border-color: #4a2a18;
+}
+
+/* Form progress steps */
+.progress-steps .step.active {
+    color: #6b4226; /* Darker brown */
+    font-weight: 600;
+}
+
+/* Progress bar styling update */
+.progress {
+    height: 8px;
+    background-color: #5a371f; /* Darker brown (was light beige) */
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+/* Form progress bar */
+.progress-bar {
+    background-color: #f0e6d2; /* Beige (was brown) */
+    transition: width 0.3s ease;
+}
+
+/* Approval meter bar */
+.meter-bar {
+    height: 100%;
+    background-color: #f0e6d2; /* Beige (was brown) */
+    transition: width 0.5s ease;
+    width: 0;
+}
+
+/* Bootstrap progress bars (if used) */
+.progress-bar-success,
+.progress-bar-info,
+.progress-bar-warning,
+.progress-bar-danger {
+    background-color: #6b4226; /* Darker brown for all bootstrap progress variants */
+}
+
+/* Any other progress indicators */
+.progress-indicator,
+.loading-bar,
+.status-bar {
+    background-color: #6b4226; /* Darker brown for any other progress indicators */
+}
+
+/* Ensure no blue remains in any progress elements */
+[class*="progress"] [class*="bar"],
+[class*="meter"] [class*="bar"],
+[class*="slider"] [class*="fill"] {
+    background-color: #6b4226 !important; /* Force brown on any missed elements */
+}
+
+/* Form progress steps styling */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.step {
+    position: relative;
+    color: #9c9484; /* Muted beige-brown for inactive steps */
+    font-size: 0.9rem;
+}
+
+.step.active {
+    color: #6b4226; /* Darker brown for active step */
+    font-weight: 600;
+}
+
+/* Credit score slider styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: #e2d8c0; /* Light beige background */
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6b4226; /* Darker brown for slider thumb */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #6b4226; /* Darker brown for slider thumb */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #5a371f; /* Even darker brown on hover */
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #5a371f; /* Even darker brown on hover */
+}
+
+/* Team members styling */
+.team-members {
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    background-color: #5a371f; /* Darker brown */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #f0e6d2; /* Beige border */
+}
+
+.team-member h4 {
+    color: #f0e6d2; /* Beige */
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    margin-bottom: 0.3rem;
+    color: #e8e0d0; /* Lighter beige */
+}
+
+.team-member a {
+    color: #f0e6d2; /* Beige */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.team-member a:hover {
+    color: #e8e0d0; /* Lighter beige */
+}
+
+/* Remove contact link from all pages */
+.nav-links li:last-child {
+    display: block; /* Override the previous 'none' value */
+}
+
+/* Make form labels and lead text dark brown */
+.card-body .lead.text-muted,
+.form-label,
+.input-group-text {
+    color: #5a371f !important; /* Dark brown for form labels and lead text */
+}
+
+/* Specifically target the lead text in the header */
+.card-body p.lead.text-muted {
+    color: #5a371f !important; /* Dark brown for "Enter your details..." text */
+    font-weight: 500; /* Make it slightly bolder */
+}
+
+/* Make sure section headings remain brown */
+.card-body .text-primary,
+.card-header h4,
+.col-12 h5.text-primary,
+.card-header h4 i,
+.col-12 h5.text-primary i,
+.alert-heading i,
+.display-5.fw-bold.text-primary {
+    color: #6b4226 !important; /* Keep brown for headings and icons */
+}
